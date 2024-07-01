@@ -1,19 +1,27 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:  
-        ls =[]
-        lt =[]
-        l = len(s)
-        try:
-            for i in range(l):
-                ls.append(s[i])
-                lt.append(t[i])
-        except IndexError :
-            return False #unequal string so anagram not possible
+        d ={}
+        ls = len(s)
+        lt = len(t)
+        if lt!=ls :
+            return False
         
-        for i in ls:
-            if i in lt :
-                lt.remove(i)
-            ls.remove(i)
+        for i in s :
+            if i in d :
+                d[i]+=1
+            else :
+                d[i]=1
+        
+        for i in t :
+            if i in d:
+                d[i]-=1
+            else :
+                return False
+        v = d.values()
+        for i in v :
+            if i != 0 :
+                return False
+        return True
 
 
 
