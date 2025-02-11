@@ -13,7 +13,7 @@ class Solution:
             q.append((r,c))
             
             while q:
-                r,c = q.pop()
+                r,c = q.popleft()
                 directions = [[1,0],[0,1],[-1,0],[0,-1]]
                 for dr,dc in directions :
                     if ((r+dr) in range(rows) and (c+dc) in range(cols) and grid[r+dr][c+dc] == '1' and (r+dr,c+dc) not in visit ):
