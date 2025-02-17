@@ -1,3 +1,4 @@
+// Last updated: 17/02/2025, 07:51:52
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, val=0, next=None):
@@ -8,8 +9,9 @@ class Solution:
         dummy_head = ListNode()
         curr = dummy_head
         carry = 0
-        sum = 0
+        
         while l1 or l2 or carry:
+            sum = 0
             if l1 :
                 sum+=l1.val
                 l1 = l1.next
@@ -20,6 +22,5 @@ class Solution:
             carry = sum // 10
             sum = sum%10
             curr.next = ListNode(sum)
-            sum = 0
             curr = curr.next
         return dummy_head.next
