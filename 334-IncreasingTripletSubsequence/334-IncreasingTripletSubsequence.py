@@ -1,4 +1,4 @@
-# Last updated: 5/23/2025, 7:13:26 PM
+# Last updated: 5/23/2025, 7:14:19 PM
 class Solution:
     def increasingTriplet(self, nums: List[int]) -> bool:
         # prev = 0
@@ -15,7 +15,6 @@ class Solution:
         second = float('inf')
         print(type(first))
         for i in nums :
-            print(type(i))
             if i <= first :
                 first = i
             elif i <= second :
