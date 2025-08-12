@@ -1,4 +1,4 @@
-# Last updated: 8/11/2025, 8:41:53 PM
+# Last updated: 8/11/2025, 8:42:01 PM
 class Solution:
     def sortedSquares(self, nums: List[int]) -> List[int]:
         l = len(nums)
