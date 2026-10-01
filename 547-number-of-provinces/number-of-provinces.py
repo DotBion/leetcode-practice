@@ -8,9 +8,21 @@ class Solution:
                 if isConnected[node][j] == 1 and j not in visited :
                     visited.add(j)
                     dfs(j)
+        def bfs(node) :
+            q = deque([node])
+            visited.add(node)
+            while q :
+                neighbour = q.popleft()
+                #check its neighbours
+                for j in range(n) :
+                    if isConnected[neighbour][j] == 1 and j not in visited:
+                        visited.add(j)
+                        q.append(j)
+                        
         for i in range(n) :
             if i not in visited :
                 count+=1
                 #call dfs or bfs : which will explore all nodes inthe tree
-                dfs(i) #explore the graph
+                #dfs(i)
+                bfs(i) #explore the graph
         return count
