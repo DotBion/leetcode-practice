@@ -6,13 +6,15 @@
 class Solution:
     def removeNthFromEnd(self, head: ListNode | None, n: int) -> ListNode | None:
         dummy = ListNode(0,head)
-        l = 0 
-        curr = head 
-        while curr!=None :
-            curr = curr.next
-            l+=1
-        curr = dummy
-        for i in range(l-n) :
-            curr = curr.next
-        curr.next = curr.next.next
+        left = dummy
+        right = head
+        for i in range(n) :
+            right = right.next
+        #left and right are at a distance n
+        #now iterate until right hits end so left will be a node prior to the ndoe to delete. prior since we introduced dummy. else we would be on the node to be deleted but wouldnt be able to since we need to link the prev node to the next of teh node to be deleted.
+
+        while right!=None :
+            right = right.next
+            left = left.next
+        left.next = left.next.next
         return dummy.next
